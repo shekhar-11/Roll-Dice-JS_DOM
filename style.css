@@ -22,6 +22,10 @@ body {
   justify-content: center;
 }
 
+.change_bg {
+  background-image: linear-gradient(#222, #1f1f1f);
+}
+
 /* LAYOUT */
 main {
   position: relative;
@@ -43,6 +47,30 @@ main {
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
+}
+
+.modal {
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  z-index: 50;
+
+  position: absolute;
+  width: 48%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 48%;
+  top: 25%;
+  left: 25%;
+  text-align: start;
+  font-size: 20px;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  border: #444 solid 2px;
+  border-radius: 5px;
+
+  /* display: block; */
 }
 
 /* ELEMENTS */

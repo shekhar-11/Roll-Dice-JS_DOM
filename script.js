@@ -5,53 +5,51 @@ let instant_Score_1 = 0;
 let changeValue = function () {
   if (current_player.classList.contains('player--0')) {
     current_player.classList.remove('player--active');
-
-    if (diceNum == '1') {
-      instant_Score_0 = 0;
-    } else {
+    if (diceNum !== 1) {
       hs_0(
         Number(document.querySelector('#current--0').textContent) +
           Number(document.querySelector('#score--0').textContent)
       );
       if (
         current_player.classList.contains('player--0') &&
-        current_player.querySelector('#score--0').textContent >= 100
+        current_player.querySelector('#score--0').textContent >= 20
       ) {
         document.querySelector('main').style.backgroundColor = '#222';
-        document.querySelector('main').style.color = '#fff';
-        document.querySelector('body').classList.add('change_bg');
+        // document.querySelector('main').style.color = '#fff';
+
+        document.querySelector('#all').classList.add('change_bg');
 
         document.querySelector('#modal').classList.add('modal');
         document.querySelector('.won').textContent =
           'Player 0 Has Won The Game';
       }
     }
+    instant_Score_0 = 0;
     current_player = document.querySelector('.player--1');
     current_player.classList.add('player--active');
     curr_0('0');
   } else if (current_player.classList.contains('player--1')) {
     current_player.classList.remove('player--active');
 
-    if (diceNum == '1') {
-      instant_Score_1 = 0;
-    } else {
+    if (diceNum !== 1) {
       hs_1(
         Number(document.querySelector('#current--1').textContent) +
           Number(document.querySelector('#score--1').textContent)
       );
       if (
         current_player.classList.contains('player--1') &&
-        current_player.querySelector('#score--1').textContent >= 100
+        current_player.querySelector('#score--1').textContent >= 20
       ) {
         document.querySelector('main').style.backgroundColor = '#222';
-        document.querySelector('main').style.color = '#fff';
-        document.querySelector('body').classList.add('change_bg');
+        // document.querySelector('main').style.color = '#fff';
+        document.querySelector('#all').classList.add('change_bg');
 
         document.querySelector('#modal').classList.add('modal');
         document.querySelector('.won').textContent =
           'Player 1 Has Won The Game';
       }
     }
+    instant_Score_1 = 0;
     current_player = document.querySelector('.player--0');
     current_player.classList.add('player--active');
     curr_1('0');
@@ -81,6 +79,13 @@ resetGame.addEventListener('click', function () {
   curr_1('0');
   instant_Score_0 = 0;
   instant_Score_1 = 0;
+  if (document.querySelector('#modal').classList.contains('modal')) {
+    document.querySelector('.won').textContent = '';
+    document.querySelector('#modal').classList.remove('modal');
+  }
+  document.querySelector('.main').style.backgroundColor =
+    'rgba(255, 255, 255, 0.35)';
+  document.querySelector('#all').classList.remove('change_bg');
 });
 
 let hold = document.querySelector('.btn--hold');
@@ -96,7 +101,7 @@ roll.addEventListener('click', function () {
   console.log(diceNum);
   if (diceNum === 1) {
     diceImg.src = 'dice-1.png';
-    changeValue('1');
+    changeValue();
   } else if (diceNum === 2) {
     diceImg.src = 'dice-2.png';
     if (current_player.classList.contains('player--0')) {
@@ -159,4 +164,14 @@ document.querySelector('body').addEventListener('keydown', function (e) {
   curr_1('0');
   instant_Score_0 = 0;
   instant_Score_1 = 0;
+
+  // document.querySelector('.all').classList.remove('change_bg');
+  if (
+    document.querySelector('main').style.backgroundColor !=
+    'rgba(255, 255, 255, 0.35)'
+  ) {
+    document.querySelector('main').style.backgroundColor =
+      'rgba(255, 255, 255, 0.35)';
+    document.querySelector('#all').classList.remove('change_bg');
+  }
 });

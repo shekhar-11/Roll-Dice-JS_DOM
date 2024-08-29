@@ -26,6 +26,60 @@ html {
   background-image: linear-gradient(#222, #1f1f1f);
 }
 
+/* input begins */
+.input_father {
+  height: 50vh;
+  width: 50vw;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 23%;
+  left: 25%;
+  flex-direction: column;
+  gap: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  z-index: 50;
+}
+.roll_it {
+  color: aliceblue;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: 800;
+}
+.input_box {
+  width: 80%;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.beginning {
+  display: none;
+}
+.full {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100vh);
+}
+
+#input_submit {
+  color: aliceblue;
+  font-weight: 800;
+  width: 80px;
+  border-radius: 2px;
+  border-style: none;
+  height: 30px;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+}
+
+/* input ends */
+
 /* LAYOUT */
 main {
   position: relative;
@@ -71,6 +125,12 @@ main {
   border-radius: 5px;
 
   /* display: block; */
+}
+#exit {
+  position: absolute;
+  top: 100;
+  left: 100%;
+  padding: 5px;
 }
 
 /* ELEMENTS */
